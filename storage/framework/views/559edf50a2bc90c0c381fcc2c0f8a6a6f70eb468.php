@@ -1,0 +1,1 @@
+<a href="#"   data-id="565" class="deleteAdmin btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a><?php /**PATH /home/madrid/ecommerce/resources/views/admin/dataTables/buttonAction/delete.blade.php ENDPATH**/ ?>

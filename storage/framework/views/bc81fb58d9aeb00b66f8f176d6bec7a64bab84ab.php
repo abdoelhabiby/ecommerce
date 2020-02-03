@@ -1,0 +1,1 @@
+<a href="<?php echo e(url('dashboard/admin/'.$id.'/edit')); ?>"><i class="btn btn-info fa fa-edit"></i></a><?php /**PATH /home/madrid/ecommerce/resources/views/admin/dataTables/buttonAction/edit.blade.php ENDPATH**/ ?>
