@@ -20,6 +20,7 @@ class rediectAdmin
     if (Auth::guard($guard)->check()) {
 
           return $next($request);
+          
 
 
         }else{

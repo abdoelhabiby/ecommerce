@@ -3,15 +3,15 @@
 
 <?php $__env->stopSection(); ?>
 
-<div class="container" style="margin: 0px 20px">
 <?php $__env->startSection("content"); ?>
 
- <?php echo $dataTable->table(['class' => 'tabel table-hover testTable']); ?>
 
 
 
-<?php $__env->stopSection(); ?>
-</div>
+ <?php echo $dataTable->table(['class' => 'table table-hover table-bordered dataTable']); ?>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="adminDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,11 +28,24 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <form action="" method="post">
+                 <?php echo csrf_field(); ?>
+                <?php echo method_field("delete"); ?>
+
+                  <input type="submit" value="delete" class="btn btn-danger">
+         </form> 
+
+
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+<?php $__env->stopSection(); ?>
+
 
 
 
@@ -56,6 +69,9 @@ $(function(){
 
 	 $(".dt-buttons a").css({"marginRight" : "10px"});
 	 $(".dt-buttons").css({"marginBottom" : "10px"});
+
+
+	 $(".dataTables_filter input").css({"borderRadius" : "5px","outline" : 0});
 
 
 

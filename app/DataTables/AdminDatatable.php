@@ -39,33 +39,6 @@ class AdminDatatable extends DataTable
         }
 
 
-  public static function langJson(){
-
-  return [
-             "sEmptyTable"=>     trans("admin.sEmptyTable"),
-             "sInfo"=>           trans("admin.sInfo"),
-             "sInfoEmpty"=>      trans('admin.login'),
-             "sInfoFiltered"=>   trans("admin.sInfoFiltered"),
-             "sInfoPostFix"=>    "",
-             "sInfoThousands"=>      ".",
-             "sLengthMenu"=>     trans("admin.sLengthMenu"),
-             "sLoadingRecords"=>     trans("admin.sLoadingRecords"),
-             "sProcessing"=>     trans("admin.sLoadingRecords"),
-             "sSearch"=>         trans("admin.sSearch"),
-             "sZeroRecords"=>    trans("admin.sZeroRecords"),
-             "oPaginate"=> [
-                 "sFirst"=>      trans("admin.sFirst"),
-                 "sPrevious"=>   trans("admin.sPrevious"),
-                 "sNext"=>       trans("admin.sNext"),
-                 "sLast"=>       trans("admin.sLast")
-             ],
-             "oAria"=> [
-                 "sSortAscending"=>  ": aktivieren, um Spalte aufsteigend zu sortieren",
-                 "sSortDescending"=> ": aktivieren, um Spalte absteigend zu sortieren"
-             ]
-         ];
-
-  } 
 
 
     public function html()
@@ -83,7 +56,7 @@ class AdminDatatable extends DataTable
                         Button::make('reset'),
                         Button::make('reload')
                     )
-                    ->language(self::langJson());
+                    ->language(datatableLang());
     }
 
     protected function getColumns()
@@ -91,16 +64,18 @@ class AdminDatatable extends DataTable
         return [
     
             Column::make('id'),
-            Column::make('name'),
-            Column::make('email'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('name')->title(trans('admin.tb_name')),
+            Column::make('email')->title(trans('admin.tb_email')),
+            Column::make('created_at')->title(trans('admin.tb_created')),
+            Column::make('updated_at')->title(trans('admin.tb_updated')),
             Column::computed('edit')
+                  ->title(trans('admin.tb_edit'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
             Column::computed('delete')
+                  ->title(trans('admin.tb_delete'))
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

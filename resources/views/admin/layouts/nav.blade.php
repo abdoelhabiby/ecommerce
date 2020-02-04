@@ -7,7 +7,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -27,7 +27,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-    <li class="nav-item {{ request()->segment(2) == 'admin' ? 'active' : ''}}">
+    <li class="nav-item {{ request()->segment(3) == 'admin' ? 'active' : ''}}">
         <a class="nav-link" href="{{url(route('admin.index'))}}">
           <i class="fas fa-fw fa-cog"></i>
           <span>{{trans('admin.adminPanel')}}</span></a>
@@ -237,6 +237,35 @@
               </div>
             </li>
 
+
+<!-- ========================================lang=============================================== -->
+
+
+
+ <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="LangDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
+                        <i class="fa fa-flag"></i>
+                </span>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="LangDropdown">
+                   <ul>
+                      @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                          <li>
+                              <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                  {{ $properties['native'] }}
+                              </a>
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+            </li>
+<!-- =========================================end lang========================================== -->
+
+
+
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -269,15 +298,20 @@
               </div>
             </li>
 
+
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 <!-- ====================================== content here=============================== -->
         <!-- Begin Page Content -->
+
+      <div class="container"> 
+        
+        
          @yield("content")
 
-
+     </div> 
 
 
 <!-- ======================================end  content here=============================== -->

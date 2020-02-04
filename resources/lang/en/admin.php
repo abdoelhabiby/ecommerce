@@ -20,5 +20,18 @@ return [
 	"sPrevious" => "Previous",
 	"sNext" => "Next",
 	"sLast" => "Last",
+    "tb_name"  =>  "Name ",
+	"tb_email"  =>  "E-mail",
+	"tb_created"  =>  "Created At",
+	"tb_updated"  =>  "Updated At",
+	"tb_edit"  =>  "Edit",
+	"tb_delete"  =>  "Delete",
+    "name" => "Name",
+	"email" => "Email",
+	"password" => "password",
+	"password_confirmation" => "Passwod Confimation",
+	"create" => "Create Admin",
+	"btn-create" => "Create",
+	"createSucc" => "Succes To Create New Admin"
 
 ];

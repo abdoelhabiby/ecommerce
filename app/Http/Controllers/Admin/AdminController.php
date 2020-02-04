@@ -22,7 +22,7 @@ class AdminController extends Controller
     {
        
 
-        return $dataTable->render('admin.dataTables.index');
+        return $dataTable->render('admin.index');
 
 
     }
@@ -45,7 +45,7 @@ class AdminController extends Controller
 
     public function create()
     {
-
+        return view("admin.create");
 
     }
 
@@ -54,7 +54,16 @@ class AdminController extends Controller
 // ================================================================================================
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+                     
+                     "name" => "required|min:3|string",
+                     "email" => "required|email|unique:admins",
+                     'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+            ]);
+
+        return $validate;
+
     }
 
 

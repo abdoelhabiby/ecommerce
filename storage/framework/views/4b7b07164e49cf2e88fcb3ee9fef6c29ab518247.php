@@ -7,7 +7,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e(url('/dashboard')); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -27,7 +27,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-    <li class="nav-item <?php echo e(request()->segment(2) == 'admin' ? 'active' : ''); ?>">
+    <li class="nav-item <?php echo e(request()->segment(3) == 'admin' ? 'active' : ''); ?>">
         <a class="nav-link" href="<?php echo e(url(route('admin.index'))); ?>">
           <i class="fas fa-fw fa-cog"></i>
           <span><?php echo e(trans('admin.adminPanel')); ?></span></a>
@@ -237,6 +237,36 @@
               </div>
             </li>
 
+
+<!-- ========================================lang=============================================== -->
+
+
+
+ <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="LangDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
+                        <i class="fa fa-flag"></i>
+                </span>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="LangDropdown">
+                   <ul>
+                      <?php $__currentLoopData = LaravelLocalization::getSupportedLocales(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localeCode => $properties): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <li>
+                              <a rel="alternate" hreflang="<?php echo e($localeCode); ?>" href="<?php echo e(LaravelLocalization::getLocalizedURL($localeCode, null, [], true)); ?>">
+                                  <?php echo e($properties['native']); ?>
+
+                              </a>
+                          </li>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </ul>
+              </div>
+            </li>
+<!-- =========================================end lang========================================== -->
+
+
+
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -270,15 +300,20 @@
               </div>
             </li>
 
+
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 <!-- ====================================== content here=============================== -->
         <!-- Begin Page Content -->
+
+      <div class="container"> 
+        
+        
          <?php echo $__env->yieldContent("content"); ?>
 
-
+     </div> 
 
 
 <!-- ======================================end  content here=============================== -->

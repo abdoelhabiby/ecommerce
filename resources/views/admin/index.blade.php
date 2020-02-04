@@ -4,14 +4,27 @@
  {{trans('admin.adminPanel')}}
 @endsection
 
-<div class="container" style="margin: 0px 20px">
 @section("content")
 
- {!! $dataTable->table(['class' => 'tabel table-hover testTable']) !!}
+@if(session()->has("success"))
 
-
-@endsection
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Success</strong> {{trans("admin.createSucc")}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+
+
+@endif
+
+
+
+
+
+ {!! $dataTable->table(['class' => 'table table-hover table-bordered dataTable']) !!}
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="adminDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,11 +41,24 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <form action="" method="post">
+                 @csrf()
+                @method("delete")
+
+                  <input type="submit" value="delete" class="btn btn-danger">
+         </form> 
+
+
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+@endsection
+
 
 
 
@@ -55,6 +81,9 @@ $(function(){
 
 	 $(".dt-buttons a").css({"marginRight" : "10px"});
 	 $(".dt-buttons").css({"marginBottom" : "10px"});
+
+
+	 $(".dataTables_filter input").css({"borderRadius" : "5px","outline" : 0});
 
 
 

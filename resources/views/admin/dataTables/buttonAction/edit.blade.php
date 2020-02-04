@@ -1,1 +1,1 @@
-<a href="{{url('dashboard/admin/'.$id.'/edit')}}"><i class="btn btn-info fa fa-edit"></i></a>
+<a href="{{url('dashboard/admin/'.$id.'/edit')}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>

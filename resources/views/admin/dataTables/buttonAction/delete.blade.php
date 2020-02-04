@@ -1,1 +1,1 @@
-<a href="#"   data-id="565" class="deleteAdmin btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+<a href="#"   data-id="{!! $id!!}" class="deleteAdmin btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>

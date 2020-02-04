@@ -19,7 +19,7 @@ class adminAcount extends Controller
  //=====================================================================================================   
    public function login(){
         
-       return view("admin.login");
+       return view("admin.adminAcount.login");
 
 
    }
@@ -29,13 +29,13 @@ class adminAcount extends Controller
 // ==========================================================================================
    public function submitLogin(){
 
-  // return request()->all();
+   // return request()->all();
 
      $remember = request()->remember ? true : false;
 
    	  if(auth()->guard("admin")->attempt(["email" => request()->email,"password" => request()->password],$remember)){
 
-   	  	return redirect("dashboard");
+   	  	return redirect("en/dashboard");
    	  }else{
    	  	session()->flash("error_log","email or passwod not correct");
    	  	return back();
@@ -61,7 +61,7 @@ class adminAcount extends Controller
 
    public function forgotPassword(){
 
-                return view("admin.resetPassword");
+                return view("admin.adminAcount.resetPassword");
 
 
    }
@@ -118,7 +118,7 @@ class adminAcount extends Controller
 
   	  if(!empty($checkToken)){
 
-  	  	 return view("admin.reset_new_pass",compact("checkToken"));
+  	  	 return view("admin.adminAcount.reset_new_pass",compact("checkToken"));
          
 
   	  }else{

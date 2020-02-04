@@ -19,6 +19,9 @@ Route::group(['prefix' => 'dashboard','namespace' => "Admin"],function(){
 	Route::group(["middleware" => "checkAdmin:admin"],function(){
 
 		Route::resource("/admin","AdminController");
+	
+
+
 		Route::get("/adminData","AdminController@adminsData")->name('datatables.data');
 
 
@@ -31,12 +34,24 @@ Route::group(['prefix' => 'dashboard','namespace' => "Admin"],function(){
 	});
 
 
-   
-     
+  
+
+});
+
+
+
+
+ });
+
+
+
+Route::group(['prefix' => 'dashboard','namespace' => "Admin"],function(){
+
 
 // ===================================================================================
 	      Route::get('/login',"adminAcount@login");
-	      Route::post('/login',"adminAcount@submitLogin");
+	       Route::post('/login',"adminAcount@submitLogin");
+	  
 
 	      Route::get("/forgotPassword","adminAcount@forgotPassword");
 	      Route::post("/forgotPassword","adminAcount@forgotPasswordSubmit");
@@ -46,21 +61,6 @@ Route::group(['prefix' => 'dashboard','namespace' => "Admin"],function(){
 
 // ===================================================================================
 
-
-	      
-
-
 });
-
-
-
-
-
-
-
-});
-
-
-
 
 

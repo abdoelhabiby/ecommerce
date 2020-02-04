@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 
 <head>
 
@@ -18,13 +18,54 @@
   <!-- Custom styles for this template-->
   <link href="{{asset('admin')}}/css/sb-admin-2.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+<!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+ -->
+  <link href="{{asset('admin')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
 
 <style type="text/css">
-  .dataTables_wrapper{
-    margin:50px 25px !important;
+  
+
+@if(LaravelLocalization::getCurrentLocale() == 'ar')
+
+ .card{
+      text-align-last: start !important;
+
+ }
+
+  .navbar-nav{
+      padding-right: 1px !important;
   }
+
+  .navbar-nav .nav-item {
+    padding-right: 13px !important;
+    text-align-last: start !important;
+
+     }
+
+.sidebar-heading{
+    text-align-last: center !important;
+}
+
+
+@media (min-width: 768px){
+.sidebar.toggled .nav-item .nav-link {
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+    width: 5.5rem !important;
+    text-align-last: center !important;
+    padding-right: 1 !important;
+
+}}
+
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination{
+   justify-content: flex-start;
+}
+
+@endif     
+
 </style>
 
 </head>
