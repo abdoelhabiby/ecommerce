@@ -1,29 +1,28 @@
-<?php $__env->startSection('title'); ?>
- <?php echo e(trans('admin.adminPanel')); ?>
+@extends("admin.layouts.app")
 
-<?php $__env->stopSection(); ?>
+@section('title')
+ {{trans('admin.adminPanel')}}
+@endsection
 
-<?php $__env->startSection("content"); ?>
+@section("content")
 
-<?php if(session()->has("success")): ?>
+@if(session()->has("success"))
 
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Success</strong> <?php echo e(session('success')); ?>
-
+  <strong>Success</strong> {{session('success')}}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 
 
-<?php endif; ?>
+@endif
 
 
 
 
 
- <?php echo $dataTable->table(['class' => 'table table-hover table-bordered dataTable']); ?>
-
+ {!! $dataTable->table(['class' => 'table table-hover table-bordered dataTable']) !!}
 
 
 
@@ -32,22 +31,21 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-<!--         <h5 class="modal-title" id="exampleModalLabel"><?php echo e(trans("admin.modWarn")); ?></h5>
+<!--         <h5 class="modal-title" id="exampleModalLabel">{{trans("admin.modWarn")}}</h5>
  -->        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <?php echo e(trans("admin.modMess")); ?>
-
+        {{trans("admin.modMess")}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(trans("admin.close")); ?></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans("admin.close")}}</button>
         <form action="" method="post">
-                 <?php echo csrf_field(); ?>
-                <?php echo method_field("delete"); ?>
+                 @csrf()
+                @method("delete")
 
-                  <input type="submit" value="<?php echo e(trans('admin.delete')); ?>" class="btn btn-danger">
+                  <input type="submit" value="{{trans('admin.delete')}}" class="btn btn-danger">
          </form> 
 
 
@@ -59,19 +57,18 @@
 
 
 
-<?php $__env->stopSection(); ?>
+@endsection
 
 
 
 
 
-<?php $__env->startPush('scripts'); ?>
+@push('scripts')
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
 <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
 <script src="/vendor/datatables/buttons.server-side.js"></script>
-<?php echo $dataTable->scripts(); ?>
-
+{!! $dataTable->scripts() !!}
 
 <script type="text/javascript">
 $(function(){
@@ -97,5 +94,4 @@ $(function(){
 
 </script>
 
-<?php $__env->stopPush(); ?>
-<?php echo $__env->make("admin.layouts.app", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/madrid/ecommerce/resources/views/admin/index.blade.php ENDPATH**/ ?>
+@endpush

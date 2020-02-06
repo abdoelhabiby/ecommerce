@@ -29,3 +29,18 @@
 		];
 	}
 // }
+
+
+
+ // if(!method_exists("setting")){
+
+    function setting(){
+        return \App\Settings::orderBy("id","desc")->first();
+    }
+
+ // }
+
+
+
+
+    ?>

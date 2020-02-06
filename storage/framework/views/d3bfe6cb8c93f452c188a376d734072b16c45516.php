@@ -16,55 +16,25 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="<?php echo e(asset('admin')); ?>/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo e(asset('admin')); ?>/css/sb-admin-2.css" rel="stylesheet">
 
 <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
  -->
   <link href="<?php echo e(asset('admin')); ?>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="<?php echo e(asset('admin')); ?>/css/admin.css" rel="stylesheet">
 
 
 <style type="text/css">
   
-
-<?php if(LaravelLocalization::getCurrentLocale() == 'ar'): ?>
-
- .card{
-      text-align-last: start !important;
-
- }
-
-  .navbar-nav{
-      padding-right: 1px !important;
-  }
-
-  .navbar-nav .nav-item {
-    padding-right: 13px !important;
-    text-align-last: start !important;
-
-     }
-
-.sidebar-heading{
-    text-align-last: center !important;
+<?php if(LaravelLocalization::getCurrentLocale() == 'en'): ?>
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    justify-content: flex-end !important;
 }
 
 
-@media (min-width: 768px){
-.sidebar.toggled .nav-item .nav-link {
-    text-align: center !important;
-    padding: 0.75rem 1rem !important;
-    width: 5.5rem !important;
-    text-align-last: center !important;
-    padding-right: 1 !important;
+<?php endif; ?>
 
-}}
-
-
-div.dataTables_wrapper div.dataTables_paginate ul.pagination{
-   justify-content: flex-start;
-}
-
-<?php endif; ?>     
 
 </style>
 

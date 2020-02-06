@@ -1,0 +1,74 @@
+/*
+table.dataTable{
+  text-align-last: center;
+}
+*/
+
+@if(LaravelLocalization::getCurrentLocale() == 'ar')
+
+
+
+    .modal-footer{
+          justify-content: flex-start;
+
+    }
+
+    .modal-footer button{
+      margin-left: 10px;
+    }
+
+     .card{
+          text-align-last: start !important;
+
+     }
+
+      .navbar-nav{
+          padding-right: 1px !important;
+      }
+
+      .navbar-nav .nav-item {
+        padding-right: 13px !important;
+        text-align-last: start !important;
+
+         }
+
+    .sidebar-heading{
+        text-align-last: center !important;
+    }
+
+
+    @media (min-width: 768px){
+    .sidebar.toggled .nav-item .nav-link {
+        text-align: center !important;
+        padding: 0.75rem 1rem !important;
+        width: 5.5rem !important;
+        text-align-last: center !important;
+        padding-right: 1 !important;
+
+    }}
+
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination{
+       justify-content: flex-start;
+    }
+
+
+    .modal-body{
+          text-align-last: start !important;
+
+    }
+
+
+     table thead{
+    text-align-last: start !important; 
+  }
+    
+@endif     
+
+@if(LaravelLocalization::getCurrentLocale() == 'en')
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    justify-content: flex-end !important;
+}
+
+
+@endif

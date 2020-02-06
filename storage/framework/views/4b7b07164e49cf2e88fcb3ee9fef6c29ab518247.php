@@ -24,13 +24,33 @@
           <span><?php echo e(trans('admin.dashboard')); ?></span></a>
       </li>
 
+    <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item <?php echo e(request()->segment(3) == 'setting' ? 'active' : ''); ?>">
+
+        <a class="nav-link" href="<?php echo e(url('dashboard/setting')); ?>">
+          <i class="fas fa-fw fa-cogs"></i>
+          <span><?php echo e(trans('admin.setting')); ?></span></a>
+
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
     <li class="nav-item <?php echo e(request()->segment(3) == 'admin' ? 'active' : ''); ?>">
         <a class="nav-link" href="<?php echo e(url(route('admin.index'))); ?>">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-fw fa-users"></i>
           <span><?php echo e(trans('admin.adminPanel')); ?></span></a>
+      </li>  
+
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item <?php echo e(request()->segment(3) == 'users' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(url(route('users.index'))); ?>">
+          <i class="fas fa-fw fa-users"></i>
+          <span><?php echo e(trans('admin.users')); ?></span></a>
       </li>
 
       <!-- Heading -->

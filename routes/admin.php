@@ -18,12 +18,28 @@ Route::group(['prefix' => 'dashboard','namespace' => "Admin"],function(){
 
 	Route::group(["middleware" => "checkAdmin:admin"],function(){
 
-		Route::resource("/admin","AdminController");
-	
+// ==========================================================================================
 
 
+		Route::resource("/admin","AdminController")->except('show');
 		Route::get("/adminData","AdminController@adminsData")->name('datatables.data');
 
+// ==========================================================================================
+    
+      Route::get("setting","SettingsController@setting");
+      Route::PUT("setting","SettingsController@setting_submit")->name("setingPo");
+
+
+
+// ==========================================================================================
+// ==========================================================================================
+// ==========================================================================================
+
+
+		Route::resource("/users","userController")->except('show');
+		Route::get("/userData","userController@usersData")->name('udatatables.data');
+
+// =================================================================================
 
 	      Route::get('/',function(){
 	      	 return view("admin.welcome");

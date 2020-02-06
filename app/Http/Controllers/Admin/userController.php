@@ -2,42 +2,36 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Admin;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\DataTables\AdminDatatable;
+use App\DataTables\usersDatatable;
 
 use Yajra\Datatables\Datatables;
 
-
-class AdminController extends Controller
+class userController extends Controller
 {
+   // ================================================================================================
 
-
-
-// ================================================================================================
-
-    public function index(AdminDatatable $dataTable)
+    public function index(usersDatatable $dataTable)
     {
        
 
-        return $dataTable->render('admin.crud_admin.index');
+        return $dataTable->render('admin.users.index');
 
 
     }
 
 
-    public function adminsData()
-    {
+    // public function usersData()
+    // {
+
+    //     return Datatables::of(User::query())->make(true);
 
 
 
-        return Datatables::of(Admin::query())->make(true);
-
-
-
-    }
+    // }
 
 
 // ================================================================================================
@@ -45,7 +39,7 @@ class AdminController extends Controller
 
     public function create()
     {
-        return view("admin.crud_admin.create");
+        return view("admin.users.create");
 
     }
 
@@ -57,18 +51,20 @@ class AdminController extends Controller
         $validate = $request->validate([
                      
                      "name" => "required|min:3|string",
-                     "email" => "required|email|unique:admins",
+                     "email" => "required|email|unique:users",
+                     "level" => "required|in:user,vendor,company",
                      'password' => ['required', 'string', 'min:6', 'confirmed'],
 
             ]);
 
         $validate['password'] = bcrypt($request->password);
 
-        Admin::create($validate);
 
-        session()->flash("success",trans('admin.createSucc'));
+        User::create($validate);
 
-        return redirect(route("admin.index"));
+        session()->flash("success",trans('admin.createSuccUs'));
+
+        return redirect(route("users.index"));
 
 
     }
@@ -77,23 +73,26 @@ class AdminController extends Controller
 
 // ===============================================================================================
 
-// ================================================================================================
-
-    public function edit(Admin $admin)
+    public function edit($edit)
     {
+         $users = User::findOrFail($edit);
 
-        return view("admin.crud_admin.edit",compact("admin"));
+
+        return view("admin.users.edit",compact("users"));
     }
 
 // ================================================================================================
 
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request,$update)
     {
+         
+       $users = User::findOrFail($update);
 
             $validate = $request->validate([
                      
                      "name" => "required|min:3|string",
-                     "email" => 'required|email|unique:admins,email,'.$admin->id.',id',
+                     "email" => 'required|email|unique:users,email,'.$users->id.',id',
+                     "level" => "required|in:user,vendor,company",
                      'password' => ['sometimes','nullable', 'string', 'min:6', 'confirmed'],
 
             ]);
@@ -102,22 +101,25 @@ class AdminController extends Controller
   if($request->has("password")){
         $validate['password'] = bcrypt($request->password);
      }
-        $admin->update($validate);
+        $users->update($validate);
 
         session()->flash("success",trans('admin.updateSucc'));
 
-        return redirect(route("admin.index"));
+        return redirect(route("users.index"));
     }
 
 // ================================================================================================
 
-    public function destroy(Admin $admin)
+    public function destroy($destroy)
     {
-         $admin->delete();
+        
+         $users = User::findOrFail($destroy);
 
-        session()->flash("success",trans('admin.deleteSucc'));
+         $users->delete();
 
-        return redirect(route("admin.index"));
+        session()->flash("success",trans('admin.deleteSuccUsr'));
+
+        return redirect(route("users.index"));
         
     }
 }

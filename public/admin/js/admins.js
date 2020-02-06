@@ -15,6 +15,22 @@ $(document).on("click",".deleteAdmin",function(e){
 
 });
 
+$(document).on("click",".deleteUser",function(e){ 
+
+	e.preventDefault();
+
+    var id = $(this).data('id');
+
+     $("#deleteUers form").attr("action","users/" + id);
+
+    $("#deleteUers").modal("show");
+
+
+});
+
+
+
+
 
 
 

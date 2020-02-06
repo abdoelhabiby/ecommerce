@@ -1,15 +1,15 @@
 @extends("admin.layouts.app")
 
 @section('title')
- {{trans('admin.adminPanel')}}
+ {{trans('admin.users')}}
 @endsection
 
 @section("content")
 
 @if(session()->has("success"))
 
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Success</strong> {{trans("admin.createSucc")}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success</strong> {{session('success')}}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -20,32 +20,30 @@
 
 
 
-
-
  {!! $dataTable->table(['class' => 'table table-hover table-bordered dataTable']) !!}
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="adminDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteUers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Waning</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<!--         <h5 class="modal-title" id="exampleModalLabel">{{trans("admin.modWarn")}}</h5>
+ -->        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Are you shore do delet this admin
+        {{trans("admin.modMessUser")}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans("admin.close")}}</button>
         <form action="" method="post">
                  @csrf()
                 @method("delete")
 
-                  <input type="submit" value="delete" class="btn btn-danger">
+                  <input type="submit" value="{{trans('admin.delete')}}" class="btn btn-danger">
          </form> 
 
 
@@ -53,8 +51,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 @endsection
