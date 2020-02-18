@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Settings;
 
+use Storage;
+
 class SettingsController extends Controller
 {
     
@@ -19,31 +21,50 @@ class SettingsController extends Controller
 
 
 
+
+
+
+
   public function setting_submit(){
 
-     // $valiadte = request()->validate([
-                      
-     //                "name_en" => "testo",
-					// "name_ar" => "بم بم",
-					// "email" => "ecommerce@com.com",
-					// "description" => "test testo tastot",
-					// "keyword"  => "tastoto bardo",
-					// "maintenance_message" => "this testo in testing",
-					// "statu" =>"open",
-					// "main_lang" => "ar"
+  $validate =   request()->validate([
+                    
+                     "logo" => validateImage(),                      
+                     "icon" => validateImage(),
+                     "name_en"  => "required",
+                     "name_ar"  => "required",
+                     "email"  => "required|email",
+                     "description"  => "required|min:10",
+                     "keywords"  => "required|min:10",
+                     "maintenance_message"  => "required|min:10",
+                     "status"  => "required|in:open,close",
+                     "main_lang"  => "required",                      
 
-     //            ]);
+                ]);
 
-  	$allRequest = request()->except(['_token','_method']);
+  	// $allRequest = request()->except(['_token','_method']);
 
-  	// return $allRequest;
+ // return $validate;
+
+    if(request()->file('logo')){
+
+    $validate['logo'] = Uploade()->upload_file(setting()->logo,request()->file('logo'),'setting');
+
+    }
+
+
+    if(request()->file('icon')){
+
+     $validate['icon'] = Uploade()->upload_file(setting()->icon,request()->file('icon'),'setting');
+
+    }
 
   	  
-  	  setting()->update($allRequest);
+  	  setting()->update($validate);
 
   	  session()->flash("success","success to update setting");
 
-  	  return redirect(route('admin.index'));
+  	  return redirect(route('setting'));
 
   }
 

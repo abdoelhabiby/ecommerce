@@ -70,6 +70,8 @@
 
   <script src="{{asset('admin')}}/js/admins.js"></script>
 
+
+
 @stack("scripts")
 
 

@@ -6,12 +6,29 @@
 
 @section("content")
 
+
+@if(session()->has("success"))
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success</strong> {{session('success')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+@endif
+
+
+
+
+
 <div class="card">
           <h5 class="card-header text-primary">{{ trans("admin.edit_setting") }}</h5>
 
   <div class="card-body">
 
-       {!! Form::open(['url' => route('setingPo')]) !!}
+       {!! Form::open(['url' => route('setingPo'),"files" => true]) !!}
        @method("PUT")
 <!-- ---------------------------------------------------------------------------------------- -->
      <div class="form-group">
@@ -43,11 +60,32 @@
     <div class="form-group">
        {!! Form::label("logo",trans("admin.logo")) !!}
        {!! Form::file("logo",['class' => "form-control"]) !!}
+
+       @if($errors->has('logo'))
+         <p class="text-danger text-uppercase">{{$errors->first('logo')}}</p>
+
+       @endif
+
+       @if(!empty(setting()->logo))
+         <img src="{{ asset('storage/'.setting()->logo) }}" width="100px" height="100px">
+       @endif
     </div> 
 <!-- ====================================================================================== -->
     <div class="form-group">
        {!! Form::label("icon",trans("admin.icon")) !!}
        {!! Form::file("icon",['class' => "form-control"]) !!}
+
+     @if($errors->has('icon'))
+         <p class="text-danger text-uppercase">{{$errors->first('icon')}}</p>
+
+       @endif
+
+
+       @if(!empty(setting()->icon))
+         <img src="{{ asset('storage/'.setting()->icon) }}" width="100px" height="100px">
+       
+       @endif
+
     </div>
 <!-- ---------------------------------------------------------------------------------------- -->
    <div class="form-group">

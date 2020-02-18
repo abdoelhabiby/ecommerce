@@ -64,6 +64,16 @@ return [
 	"open" => "مفتوح",
 	"ar" => "عربي",
 	"en" => "لغه الكفاار",
+	"name_en"  => "ألاسم بالانجليزي",
+	"name_ar"  => "ألاسم بالعربي",
+	"code_number"  => "ألكود",
+	"short_name"  => "اختصار",
+	"countries"  => "ألدول",
+	"modMessCountry" => "هل انت متأكد من حذف هذه الدوله",
+	"countryDelete"  => "تم حذف الدوله",
+	"countryUpdate"  => "تم تعديل الدوله",
+	"createCountry"  => "انشاد دوله ",
+	"editCountry"    => "تعديل الدوله",
 
 	               
 

@@ -70,6 +70,8 @@
 
   <script src="<?php echo e(asset('admin')); ?>/js/admins.js"></script>
 
+
+
 <?php echo $__env->yieldPushContent("scripts"); ?>
 
 

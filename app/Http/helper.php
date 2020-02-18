@@ -42,5 +42,29 @@
 
 
 
+        function validateImage($img = null){
+
+            if($img === null){
+                return 'image|mimes:jpeg,jpg,png,gif|max:10000';
+            }else{
+                return ['image','mimes:'.$img];
+            }
+
+
+        }
+
+
+        function Uploade(){
+
+            return new App\Http\Controllers\upload;
+        }
+
+
+      function langLocal(){
+
+         return LaravelLocalization::getCurrentLocale();
+      }
+
+
 
     ?>

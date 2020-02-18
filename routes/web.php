@@ -12,9 +12,43 @@
 */
 
 
-Route::get("/",function(){
 
-  return view("welcome");
+
+  \Config::set('app.locale',setting()->main_lang);
+
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){ 
+
+
+ 
+  Route::group(['middleware' => 'maintenance'],function(){
+
+
+		Route::get("/",function(){
+
+		  return view("style.welcome");
+
+		})->name('welcome');
+
+   });
+
+
+   // ====================================================================
+
+  
+  	Route::get('maintenance',function(){
+
+  		if(setting()->status == 'open'){
+  			return redirect(route('welcome'));
+  		}
+
+       return setting()->maintenance_message;
+
+  	})->name('maintenance');	
+
 
 });
 

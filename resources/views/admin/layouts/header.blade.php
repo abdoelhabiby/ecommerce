@@ -25,6 +25,7 @@
   <link href="{{asset('admin')}}/css/admin.css" rel="stylesheet">
 
 
+
 <style type="text/css">
   
 @if(LaravelLocalization::getCurrentLocale() == 'en')

@@ -36,7 +36,7 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+    <hr class="sidebar-divider my-0">
 
     <li class="nav-item <?php echo e(request()->segment(3) == 'admin' ? 'active' : ''); ?>">
         <a class="nav-link" href="<?php echo e(url(route('admin.index'))); ?>">
@@ -45,52 +45,116 @@
       </li>  
 
 
-    <hr class="sidebar-divider">
-
+    <hr class="sidebar-divider my-0">
     <li class="nav-item <?php echo e(request()->segment(3) == 'users' ? 'active' : ''); ?>">
         <a class="nav-link" href="<?php echo e(url(route('users.index'))); ?>">
           <i class="fas fa-fw fa-users"></i>
           <span><?php echo e(trans('admin.users')); ?></span></a>
-      </li>
+      </li>  
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+
+    <hr class="sidebar-divider my-0">
+
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#CountryCity" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span><?php echo e(trans('admin.country_city')); ?></span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="CountryCity" 
+        class="collapse <?php echo e(request()->segment(3) == 'cities' || request()->segment(3) == 'states' || request()->segment(3) == 'countries' ? 'show' : ''); ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+
+              <a class="collapse-item " href="<?php echo e(url(route('countries.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'countries' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fas fa-fw fa-flag"></i>
+                <span><?php echo e(trans('admin.countries')); ?></span>
+              </a>
+
+             <a class="collapse-item" href="<?php echo e(url(route('cities.index'))); ?>"
+             style="<?php echo e(request()->segment(3) == 'cities' ? 'background-color: #DDD' : ''); ?>">
+              <i class="fas fa-fw fa-map-marker"></i>
+              <span><?php echo e(trans('admin.cities')); ?></span>
+             </a>
+
+             
+             <a class="collapse-item" href="<?php echo e(url(route('states.index'))); ?>"
+             style="<?php echo e(request()->segment(3) == 'states' ? 'background-color: #DDD' : ''); ?>">
+              <i class="fas fa-fw fa-map-marker"></i>
+              <span><?php echo e(trans('admin.states')); ?></span>
+             </a>
+
           </div>
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
+    <hr class="sidebar-divider my-0">
+
+
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Category" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span><?php echo e(trans('admin.categories')); ?></span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="Category" 
+        class="collapse <?php echo e(request()->segment(3) == 'categories' ? 'show' : ''); ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+
+              <a class="collapse-item " href="<?php echo e(url(route('categories.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'categories' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fas fa-fw fa-flag"></i>
+                <span><?php echo e(trans('admin.categories')); ?></span>
+              </a>
+
           </div>
         </div>
       </li>
 
 
+      <hr class="sidebar-divider my-0">
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trademark" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span><?php echo e(trans('admin.trademark')); ?></span>
+        </a>
+        <div id="trademark" 
+        class="collapse <?php echo e(request()->segment(3) == 'trademark' ? 'show' : ''); ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+
+              <a class="collapse-item " href="<?php echo e(url(route('trademark.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'trademark' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fas fa-fw fa-flag"></i>
+                <span><?php echo e(trans('admin.trademark')); ?></span>
+              </a>
+
+          </div>
+        </div>
+      </li>
+
+
+      <hr class="sidebar-divider my-0">
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manufacturers" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span><?php echo e(trans('admin.manufacturers')); ?></span>
+        </a>
+        <div id="manufacturers" 
+        class="collapse <?php echo e(request()->segment(3) == 'manufacturers' ? 'show' : ''); ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+
+              <a class="collapse-item " href="<?php echo e(url(route('manufacturers.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'manufacturers' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fas fa-fw fa-flag"></i>
+                <span><?php echo e(trans('admin.manufacturers')); ?></span>
+              </a>
+
+          </div>
+        </div>
+      </li>
      
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -118,7 +182,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+<!--           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -127,7 +191,10 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
+
+  <?php echo $__env->yieldContent('search'); ?>
+
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">

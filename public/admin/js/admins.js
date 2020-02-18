@@ -2,33 +2,15 @@ $(function(){
 
 
 
-$(document).on("click",".deleteAdmin",function(e){ 
 
-	e.preventDefault();
 
+$(document).on("click",".ButtonDelete",function(e){ 
+   e.preventDefault();
     var id = $(this).data('id');
-
-     $("#adminDelete form").attr("action","admin/" + id);
-
-    $("#adminDelete").modal("show");
-
-
+    var action = $(this).data('action');
+     $("#modelDelete form").attr("action",action + "/" + id);
+    $("#modelDelete").modal("show");
 });
-
-$(document).on("click",".deleteUser",function(e){ 
-
-	e.preventDefault();
-
-    var id = $(this).data('id');
-
-     $("#deleteUers form").attr("action","users/" + id);
-
-    $("#deleteUers").modal("show");
-
-
-});
-
-
 
 
 

@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
   // =========================================================================================
 
         'checkAdmin' =>\App\Http\Middleware\rediectAdmin::class,
+        'maintenance' => \App\Http\Middleware\maintenance::class,
         'localize'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
         'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
