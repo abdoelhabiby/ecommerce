@@ -35,6 +35,14 @@ Route::group(
 
 				Route::resource("manufacturers","ManufacturersController")->except('show');
 
+				Route::resource("shipping","ShippingController")->except('show');
+
+				Route::resource("malls","MallController")->except('show');
+
+				Route::resource("colors","ColorController")->except('show');
+
+				Route::resource("sizes","SizeController")->except('show');
+
 
 
 	// ==========================================================================================

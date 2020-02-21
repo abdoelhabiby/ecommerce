@@ -156,6 +156,36 @@
         </div>
       </li>
      
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item <?php echo e(request()->segment(3) == 'shipping' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(url(route('shipping.index'))); ?>">
+          <i class="fas fa-fw fa-truck"></i>
+          <span><?php echo e(trans('admin.shipping')); ?></span></a>
+      </li>  
+
+
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item <?php echo e(request()->segment(3) == 'malls' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(url(route('malls.index'))); ?>">
+          <i class="fas fa-fw fa-gift"></i>
+          <span><?php echo e(trans('admin.malls')); ?></span></a>
+      </li>  
+
+
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item <?php echo e(request()->segment(3) == 'colors' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(url(route('colors.index'))); ?>">
+          <i class="fas fa-fw fa-paint-brush"></i>
+          <span><?php echo e(trans('admin.colors')); ?></span></a>
+      </li>  
+
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item <?php echo e(request()->segment(3) == 'sizes' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(url(route('sizes.index'))); ?>">
+          <i class="fa fa-bullseye fa-fw"></i>
+          <span><?php echo e(trans('admin.sizes')); ?></span></a>
+      </li>  
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

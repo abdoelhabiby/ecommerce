@@ -74,6 +74,14 @@ return [
 	"countryUpdate"  => "تم تعديل الدوله",
 	"createCountry"  => "انشاد دوله ",
 	"editCountry"    => "تعديل الدوله",
+	"create_btn"  => "اضف",
+	"export_btn"  => "استخراج",
+	"print_btn"  => "طباعه",
+	"reset_btn"  => "اعاده",
+	"reload_btn"  => "تحديث",
+
+
+
 
 	               
 

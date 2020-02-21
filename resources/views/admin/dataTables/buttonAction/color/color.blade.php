@@ -1,0 +1,1 @@
+<div style="width: 90%; height: 20px ;background:{{$color}};display: block"></div>

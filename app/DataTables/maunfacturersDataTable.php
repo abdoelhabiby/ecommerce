@@ -62,8 +62,10 @@ class maunfacturersDataTable extends DataTable
             Column::make('id'),
             Column::make('name_en')->title(trans('admin.name_en')),
             Column::make('name_ar')->title(trans('admin.name_ar')),
+            Column::make('email')->title(trans('admin.email')),
+            Column::make('mobile')->title(trans('admin.mobile')),
             Column::make('contact_name')->title(trans('admin.contact_name')),
-            Column::make('created_at')->title(trans('admin.tb_created')),
+            // Column::make('created_at')->title(trans('admin.tb_created')),
             Column::make('updated_at')->title(trans('admin.tb_updated')),
             Column::computed('edit')
                   ->title(trans('admin.tb_edit'))

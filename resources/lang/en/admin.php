@@ -131,6 +131,43 @@ return [
 	"mobile"  => "Mobile",
 	"twitter"  => "Twitter",
 	"website"  => "Website",
+	"createManuf" => "Create Manufacturers",
+	"address"  => "Address",
+	"icon_manu"  => "manufacturer icon",
+    "create_m"  => "Create",
+    "edit_m"  => "Edit",
+    "shipping"  => "Shipping",
+    "company_owner" => "Company owner",
+    "icon_ship"  => "Shipping company logo",
+    "succShipping"  => "Success Create Shipping",
+	"succShippingDel"  => "Success Delete Shipping",
+	"succShippingUpdat" => "Success Update Shipping",
+	"modMessShip"  => "Are You Shore Delete Shipping",
+	"malls"  => "Malls",
+	"mallCreate" => "Success Delete",
+    "mallUpdate" => "Success Create",
+    "mallDelete" => "Success Update",
+    "icon_Mall" => "Mall Icon",
+    "modMessManufact" => "Are you shore delete manufacturer",
+    "modMessMall" => "Are you shore delete mall",
+    "modMessSize" => "Are you shore delete Size",
+    "colors" => "Colors",
+    "color" => "Color",
+    "Su_Create" => "Success Delete",
+    "Su_Update" => "Success Create",
+    "Su_Delete" => "Success Update",
+    "sizes"  => "Sizes",
+    "category" => "Category",
+    "is_public" => "is public",
+    "yes" => "Yes",
+    "no" => "No",
+
+
+
+	
+
+
+
 
 
 
