@@ -155,6 +155,42 @@
           </div>
         </div>
       </li>
+
+
+      <hr class="sidebar-divider my-0">
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sizeWeight" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span><?php echo e(trans('admin.sizeWeight')); ?></span>
+        </a>
+        <div id="sizeWeight" 
+        class="collapse 
+        <?php echo e(request()->segment(3) == 'sizes' ? 'show' : '' || request()->segment(3) == 'weights' ? 'show' : ''); ?>" 
+        aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+
+              <a class="collapse-item " href="<?php echo e(url(route('sizes.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'sizes' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fa fa-bullseye fa-fw"></i>
+                <span><?php echo e(trans('admin.sizes')); ?></span>
+              </a>
+
+              <a class="collapse-item " href="<?php echo e(url(route('weights.index'))); ?>" 
+                style="<?php echo e(request()->segment(3) == 'weights' ? 'background-color: #DDD' : ''); ?>">
+                <i class="fa fa-bullseye fa-fw"></i>
+                <span><?php echo e(trans('admin.weights')); ?></span>
+              </a>
+
+          </div>
+        </div>
+      </li>
+
+
+
+
+
      
     <hr class="sidebar-divider my-0">
     <li class="nav-item <?php echo e(request()->segment(3) == 'shipping' ? 'active' : ''); ?>">
@@ -179,12 +215,6 @@
           <span><?php echo e(trans('admin.colors')); ?></span></a>
       </li>  
 
-    <hr class="sidebar-divider my-0">
-    <li class="nav-item <?php echo e(request()->segment(3) == 'sizes' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo e(url(route('sizes.index'))); ?>">
-          <i class="fa fa-bullseye fa-fw"></i>
-          <span><?php echo e(trans('admin.sizes')); ?></span></a>
-      </li>  
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

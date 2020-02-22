@@ -43,6 +43,8 @@ Route::group(
 
 				Route::resource("sizes","SizeController")->except('show');
 
+				Route::resource("weights","WeightController")->except('show');
+
 
 
 	// ==========================================================================================

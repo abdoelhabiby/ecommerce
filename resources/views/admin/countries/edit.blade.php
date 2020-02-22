@@ -30,6 +30,15 @@
              <p class="text-danger text-uppercase">{{$errors->first('name_ar')}}</p>
          @endif
     </div> 
+
+  <!-- ---------------------------------------------------------------------------------------- -->
+    <div class="form-group">
+       {!! Form::label('currency', trans('admin.currency'), ['class' => 'awesome']) !!} 
+       {!! Form::text("currency",value($country->currency),['class' => 'form-control']) !!}
+         @if($errors->has('currency'))
+             <p class="text-danger text-uppercase">{{$errors->first('currency')}}</p>
+         @endif
+    </div> 
 <!-- ---------------------------------------------------------------------------------------- --> 
    <div class="form-group">
        {!! Form::label('code_number', trans('admin.code_number'), ['class' => 'awesome']) !!} 

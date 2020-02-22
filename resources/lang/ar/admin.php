@@ -79,6 +79,7 @@ return [
 	"print_btn"  => "طباعه",
 	"reset_btn"  => "اعاده",
 	"reload_btn"  => "تحديث",
+	"messageModel" => "هل انت متاكد من جذف",
 
 
 

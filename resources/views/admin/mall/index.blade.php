@@ -36,7 +36,7 @@
         </button>
       </div>
       <div class="modal-body">
-        {{trans("admin.modMessMall")}}
+        {{trans("admin.messageModel")}} <span> </span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans("admin.close")}}</button>

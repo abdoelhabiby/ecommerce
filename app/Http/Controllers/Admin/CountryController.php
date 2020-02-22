@@ -43,6 +43,7 @@ class CountryController extends Controller
                 "name_en"  => "required|string|unique:countries",
                 "name_ar"  => "required|string|unique:countries",
                 "code_number"  => "required|string",
+                "currency"  => "required|string",
                 "short_name"  => "required|string",
                 "logo"  => validateImage(),
          ],[],[
@@ -96,6 +97,7 @@ class CountryController extends Controller
 
                             "name_en"  => "required|string|unique:countries,name_en,".$country->id.",id",
                             "name_ar"  => "required|string|unique:countries,name_ar,".$country->id.",id",
+                            "currency"  => "required|string",
                             "code_number"  => "required|string",
                             "short_name"  => "required|string",
                             "logo"  => validateImage(),

@@ -64,7 +64,7 @@ class SizeDataTable extends DataTable
             Column::make('name_ar')->title(trans('admin.name_ar')),
             Column::make('category.categ_name_'.langLocal())->title(trans('admin.category')),
             Column::make('is_public')->title(trans('admin.is_public')),
-            Column::make('created_at')->title(trans('admin.tb_created')),
+            // Column::make('created_at')->title(trans('admin.tb_created')),
             Column::make('updated_at')->title(trans('admin.tb_updated')),
             Column::computed('edit')
                   ->title(trans('admin.tb_edit'))

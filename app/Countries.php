@@ -15,6 +15,7 @@ class Countries extends Model
 				"code_number",
 				"short_name",
 				"logo",
+				"currency"
 
           ];
           

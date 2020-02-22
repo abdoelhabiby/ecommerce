@@ -63,6 +63,7 @@ class CountriesDataTable extends DataTable
             Column::make('name_en')->title(trans('admin.name_en')),
             Column::make('name_ar')->title(trans('admin.name_ar')),
             Column::make('code_number')->title(trans('admin.code_number')),
+            Column::make('currency')->title(trans('admin.currency')),
             Column::make('short_name')->title(trans('admin.short_name')),
             Column::make('created_at')->title(trans('admin.tb_created')),
             Column::make('updated_at')->title(trans('admin.tb_updated')),
