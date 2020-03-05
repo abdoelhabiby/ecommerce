@@ -45,6 +45,16 @@ Route::group(
 
 				Route::resource("weights","WeightController")->except('show');
 
+				Route::resource("products","ProductsController")->except('show');
+
+				Route::post("images/upload/{pid}","ProductsController@ImUpload")->name('uploadeImage');
+				Route::post("images/main/{pid}","ProductsController@mainPhoto")->name('mainPhoto');
+				Route::post("copy/product/{pid}","ProductsController@copyProduct")->name('copyProduct');
+				Route::post("images/delete","ProductsController@deleteImage")->name('deleteImage');
+				Route::post("images/maindelete","ProductsController@mainDelete")->name('mainDelete');
+
+				Route::post("select_category","ProductsController@selectCategory")->name('selectCategory');
+
 
 
 	// ==========================================================================================

@@ -10,7 +10,7 @@ class Countries extends Model
 
     protected $fillable = [
 
-                "name_en",
+        "name_en",
 				"name_ar",
 				"code_number",
 				"short_name",
@@ -19,4 +19,11 @@ class Countries extends Model
 
           ];
           
+   
+
+   public function malls(){
+   	return $this->hasMany(\App\Model\Mall::class,'country_id','id');
+   }
+
+
 }

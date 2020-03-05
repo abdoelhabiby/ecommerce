@@ -52,11 +52,18 @@
           <span>{{trans('admin.users')}}</span></a>
       </li>  
 
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item {{ request()->segment(3) == 'products' ? 'active' : ''}}">
+        <a class="nav-link" href="{{url(route('products.index'))}}">
+          <i class="fas fa-fw fa-laptop"></i>
+          <span>{{trans('admin.products')}}</span></a>
+      </li>  
+
 
 
     <hr class="sidebar-divider my-0">
 
-      <li class="nav-item">
+      <li class="nav-item {{ request()->segment(3) == 'cities' || request()->segment(3) == 'states' || request()->segment(3) == 'countries' ? 'active' : ''}}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#CountryCity" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-list"></i>
           <span>{{trans('admin.country_city')}}</span>
@@ -91,7 +98,7 @@
     <hr class="sidebar-divider my-0">
 
 
-      <li class="nav-item">
+      <li class="nav-item {{ request()->segment(3) == 'categories' ? 'active' : ''}}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Category" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-list"></i>
           <span>{{trans('admin.categories')}}</span>
@@ -102,7 +109,7 @@
 
               <a class="collapse-item " href="{{url(route('categories.index'))}}" 
                 style="{{ request()->segment(3) == 'categories' ? 'background-color: #DDD' : ''}}">
-                <i class="fas fa-fw fa-flag"></i>
+                <i class="fas fa-fw fa-bullseye"></i>
                 <span>{{trans('admin.categories')}}</span>
               </a>
 
@@ -114,78 +121,52 @@
       <hr class="sidebar-divider my-0">
 
 
-      <li class="nav-item">
+      <li class="nav-item {{ request()->segment(3) == 'trademark' || request()->segment(3) == 'manufacturers' || request()->segment(3) == 'sizes' || request()->segment(3) == 'weights'  ? 'active' : ''}}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trademark" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-list"></i>
-          <span>{{trans('admin.trademark')}}</span>
+          <span>{{trans('admin.Product_information')}}</span>
         </a>
-        <div id="trademark" 
-        class="collapse {{ request()->segment(3) == 'trademark' ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="trademark"   
+        class="collapse {{ request()->segment(3) == 'trademark' || request()->segment(3) == 'manufacturers' || request()->segment(3) == 'sizes' || request()->segment(3) == 'weights'  ? 'show' : ''}}" 
+        aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
               <a class="collapse-item " href="{{url(route('trademark.index'))}}" 
                 style="{{ request()->segment(3) == 'trademark' ? 'background-color: #DDD' : ''}}">
-                <i class="fas fa-fw fa-flag"></i>
+                <i class="fas fa-fw fa-bullseye"></i>
                 <span>{{trans('admin.trademark')}}</span>
               </a>
 
-          </div>
-        </div>
-      </li>
-
-
-      <hr class="sidebar-divider my-0">
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manufacturers" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-list"></i>
-          <span>{{trans('admin.manufacturers')}}</span>
-        </a>
-        <div id="manufacturers" 
-        class="collapse {{ request()->segment(3) == 'manufacturers' ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-
               <a class="collapse-item " href="{{url(route('manufacturers.index'))}}" 
                 style="{{ request()->segment(3) == 'manufacturers' ? 'background-color: #DDD' : ''}}">
-                <i class="fas fa-fw fa-flag"></i>
+                <i class="fas fa-fw fa-bullseye"></i>
                 <span>{{trans('admin.manufacturers')}}</span>
               </a>
 
-          </div>
-        </div>
-      </li>
-
-
-      <hr class="sidebar-divider my-0">
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sizeWeight" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-list"></i>
-          <span>{{trans('admin.sizeWeight')}}</span>
-        </a>
-        <div id="sizeWeight" 
-        class="collapse 
-        {{ request()->segment(3) == 'sizes' ? 'show' : '' || request()->segment(3) == 'weights' ? 'show' : ''}}" 
-        aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-
               <a class="collapse-item " href="{{url(route('sizes.index'))}}" 
                 style="{{ request()->segment(3) == 'sizes' ? 'background-color: #DDD' : ''}}">
-                <i class="fa fa-bullseye fa-fw"></i>
+                <i class="fas fa-fw fa-bullseye"></i>
                 <span>{{trans('admin.sizes')}}</span>
-              </a>
+              </a>   
 
-              <a class="collapse-item " href="{{url(route('weights.index'))}}" 
+               <a class="collapse-item " href="{{url(route('weights.index'))}}" 
                 style="{{ request()->segment(3) == 'weights' ? 'background-color: #DDD' : ''}}">
-                <i class="fa fa-bullseye fa-fw"></i>
+                <i class="fas fa-fw fa-bullseye"></i>
                 <span>{{trans('admin.weights')}}</span>
               </a>
 
           </div>
         </div>
       </li>
+
+
+      <hr class="sidebar-divider my-0">
+
+
+
+
+
+  
 
 
 
@@ -257,7 +238,7 @@
 
 
           <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto navbarAdmin">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
@@ -449,6 +430,8 @@
           </ul>
 
         </nav>
+
+        <div class="clearfix"></div>
         <!-- End of Topbar -->
 <!-- ====================================== content here=============================== -->
         <!-- Begin Page Content -->

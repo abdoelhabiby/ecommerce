@@ -69,47 +69,5 @@
 <script src="/vendor/datatables/buttons.server-side.js"></script>
 {!! $dataTable->scripts() !!}
 
-<script type="text/javascript">
-$(function(){
-	 
-	 $(".buttons-create").addClass("btn btn-primary").removeClass("dt-button");
-	 $(".buttons-export").addClass("btn btn-secondary").removeClass("dt-button");
-	 $(".buttons-print").addClass("btn btn-success").removeClass("dt-button");
-	 $(".buttons-reset").addClass("btn btn-danger").removeClass("dt-button");
-	 $(".buttons-reload").addClass("btn btn-dark").removeClass("dt-button");
-
-	 $(".dt-buttons a").css({"marginRight" : "10px"});
-	 $(".dt-buttons").css({"marginBottom" : "10px"});
-
-
-	 $(".dataTables_filter input").css({"borderRadius" : "5px","outline" : 0});
-
-
-
-var lang = "{{langLocal() == 'ar' ? 'ar':'' }}";
-
-if(lang == 'ar'){
-
-var create = `<i class='fa fa-plus'></i>`;
-var export_b = `<i class='fa fa-download'></i>`;
-var print_b = `<i class='fa fa-print'></i>`;
-var reset = `<i class='fa fa-undo'></i>`;
-var reload = `<i class='fa fa-refresh'></i>`;
-
-   $(".buttons-create span").html(create + " {{trans('admin.create_btn')}}");
-   $(".buttons-export span").html(export_b + " {{trans('admin.export_btn')}}");
-   $(".buttons-print span").html(print_b + " {{trans('admin.print_btn')}}");
-   $(".buttons-reset span").html(reset + " {{trans('admin.reset_btn')}}");
-   $(".buttons-reload span").html(reload + " {{trans('admin.reload_btn')}}");
-
-
-
-}
-
-	 
-
-});
-
-</script>
 
 @endpush

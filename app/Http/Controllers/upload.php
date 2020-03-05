@@ -39,4 +39,41 @@ class upload extends Controller
 
 
 
+ public function uploadeFiles($fileRequest,$modelName,$relationId,$folder_name){
+   
+   if($fileRequest){
+
+     $name = $fileRequest->getClientOriginalName();
+     $hashName = $fileRequest->hashName();
+     $size = $fileRequest->getSize();
+     $mime = $fileRequest->getMimeType();
+
+     \App\Files::create([
+        
+        "name" => $name,
+        "size" => $size,
+        "file" => $hashName,
+        "path" => $folder_name,
+        "full_file" => $folder_name . "/" . $hashName,
+        "mimes_type" => $mime,
+        "model_name" => $modelName,
+        "relation_id" => $relationId,
+
+
+     ]);
+
+      $fileRequest->storeAs($folder_name,$hashName);
+
+      return response(['status' => true]);
+
+      
+
+   }
+    
+
+
+ }
+
+
+
 }

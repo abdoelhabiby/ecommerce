@@ -39,13 +39,18 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
+  
   <script src="<?php echo e(asset('admin/vendor/jquery/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+
 
   <!-- Core plugin JavaScript-->
   <script src="<?php echo e(asset('admin/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
 
   <!-- Custom scripts for all pages-->
+
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
   <script src="<?php echo e(asset('admin/js/sb-admin-2.min.js')); ?>"></script>
 
   <!-- Page level plugins -->
@@ -62,15 +67,60 @@
   <script src="<?php echo e(asset('admin')); ?>/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo e(asset('admin')); ?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+
+  <script src="https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+<!-- <link href="//cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+<script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> -->
+
   <!-- Page level custom scripts -->
   <script src="<?php echo e(asset('admin')); ?>/js/demo/datatables-demo.js"></script>
 
 <!-- ============================================================================================ -->
+<script type="text/javascript" src="<?php echo e(asset('plugins/ckeditor/ckeditor.js')); ?>"></script>
 
 
   <script src="<?php echo e(asset('admin')); ?>/js/admins.js"></script>
 
+<script type="text/javascript">
+  $(function(){
 
+
+   $(".buttons-create").addClass("btn btn-primary").removeClass("dt-button");
+   $(".buttons-export").addClass("btn btn-secondary").removeClass("dt-button");
+   $(".buttons-print").addClass("btn btn-success").removeClass("dt-button");
+   $(".buttons-reset").addClass("btn btn-danger").removeClass("dt-button");
+   $(".buttons-reload").addClass("btn btn-dark").removeClass("dt-button");
+
+   $(".dt-buttons a").css({"marginRight" : "10px"});
+   $(".dt-buttons").css({"marginBottom" : "10px"});
+
+
+   $(".dataTables_filter input").css({"borderRadius" : "5px","outline" : 0});
+
+    var lang = "<?php echo e(langLocal() == 'ar' ? 'ar':''); ?>";
+
+if(lang == 'ar'){
+
+var create = `<i class='fa fa-plus'></i>`;
+var export_b = `<i class='fa fa-download'></i>`;
+var print_b = `<i class='fa fa-print'></i>`;
+var reset = `<i class='fa fa-undo'></i>`;
+var reload = `<i class='fa fa-refresh'></i>`;
+
+   $(".buttons-create span").html(create + " <?php echo e(trans('admin.create_btn')); ?>");
+   $(".buttons-export span").html(export_b + " <?php echo e(trans('admin.export_btn')); ?>");
+   $(".buttons-print span").html(print_b + " <?php echo e(trans('admin.print_btn')); ?>");
+   $(".buttons-reset span").html(reset + " <?php echo e(trans('admin.reset_btn')); ?>");
+   $(".buttons-reload span").html(reload + " <?php echo e(trans('admin.reload_btn')); ?>");
+
+
+
+}
+  });
+</script>
 
 <?php echo $__env->yieldPushContent("scripts"); ?>
 

@@ -20,7 +20,7 @@
      <div class="form-group">
        {!! Form::label('name_en', trans('admin.name_en'), ['class' => 'awesome']) !!} 
        {!! Form::text("name_en",old('name_en'),['class' => 'form-control']) !!}
-         @if($errors->has('cite_en'))
+         @if($errors->has('name_en'))
              <p class="text-danger text-uppercase">{{$errors->first('name_en')}}</p>
          @endif
     </div>   

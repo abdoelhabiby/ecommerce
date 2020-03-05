@@ -70,28 +70,6 @@
 <script src="/vendor/datatables/buttons.server-side.js"></script>
 {!! $dataTable->scripts() !!}
 
-<script type="text/javascript">
-$(function(){
-	 
-	 $(".buttons-create").addClass("btn btn-primary").removeClass("dt-button");
-	 $(".buttons-export").addClass("btn btn-secondary").removeClass("dt-button");
-	 $(".buttons-print").addClass("btn btn-success").removeClass("dt-button");
-	 $(".buttons-reset").addClass("btn btn-danger").removeClass("dt-button");
-	 $(".buttons-reload").addClass("btn btn-dark").removeClass("dt-button");
 
-	 $(".dt-buttons a").css({"marginRight" : "10px"});
-	 $(".dt-buttons").css({"marginBottom" : "10px"});
-
-
-	 $(".dataTables_filter input").css({"borderRadius" : "5px","outline" : 0});
-
-
-
-
-	 
-
-});
-
-</script>
 
 @endpush

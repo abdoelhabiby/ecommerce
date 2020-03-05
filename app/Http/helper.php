@@ -66,5 +66,19 @@
       }
 
 
+      function mainParent($id){
+         
+         $category = \App\Model\Category::find($id);
+
+         if(!empty($category->parent)){
+
+            return mainParent($category->parent->id) . "," . $id;
+         }else{
+            return $id;
+         }
+
+      }
+
+
 
     ?>
