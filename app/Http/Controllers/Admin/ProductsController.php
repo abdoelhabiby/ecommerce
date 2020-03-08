@@ -9,6 +9,7 @@ use App\Model\Weight;
 use App\Model\Color;
 use App\Model\Trademark;
 use App\Model\Manufacturers;
+use App\Model\ModelRelatedProduct;
 use App\Countries;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,34 @@ class ProductsController extends Controller
 
   // =========================================================================
 
+       public function relatedProduct(){
+
+         if(request()->ajax() && request()->has('product')){
+
+           $related_id = ModelRelatedProduct::where('product_id',request()->product_id)->get(['related_id']);
+     
+            $related_product = Products::where('title','like',"%".request()->product."%")
+                                ->where('id','!=',request()->product_id)
+                                ->whereNotIn('id',$related_id)
+                                ->limit(10)->orderBy('id','desc')->get();
+
+             if($related_product->count() > 0){
+
+              return response(['status' => true,'products' => $related_product ,'count' => $related_product->count()],200); 
+   
+             }
+
+         }
+
+
+       }   
+
+
+  // =========================================================================
+
+
+
+
         public function copyProduct($proid)
         {
 
@@ -51,7 +80,8 @@ class ProductsController extends Controller
              unset($copyProduct['photo']);
 
 
-             if(!empty($copyProduct)){
+
+             if(!empty($copyProduct) && $copyProduct['title'] != ''){
 
               $copyMalls = \App\Model\MallHasProduct::where("product_id",$proid)->get();
 
@@ -70,11 +100,11 @@ class ProductsController extends Controller
 
             
 
-       return response(['status' => true,"id" => $product->id,'success' => trans('admin.successCopy')]);
+       return response(['status' => true,"id" => $product->id,'success' => trans('admin.successCopy'),'product' => $copyProduct]);
 
            }else{
 
-            return response(['status' => false,"message" =>"not found"]);
+            return response(['status' => false,"message" =>"not found"],404);
 
            }
 
@@ -232,6 +262,7 @@ class ProductsController extends Controller
          "status" => "sometimes|nullable|in:pending,refused,active",
          "reason" => "sometimes|nullable|string",
          "mall" => "sometimes|nullable|array",
+         "related_id" => "sometimes|nullable|array",
 
 
 
@@ -245,6 +276,18 @@ class ProductsController extends Controller
         foreach (request()->mall as $value) {
 
                 \App\Model\MallHasProduct::create(['product_id'=>$product->id ,'mall_id' => $value]);
+
+        }
+
+    }
+
+    if(request()->has('related_id')){  
+
+      \App\Model\ModelRelatedProduct::where('product_id',$product->id)->delete();
+
+        foreach (request()->related_id as $value) {
+
+                \App\Model\ModelRelatedProduct::create(['product_id'=>$product->id ,'related_id' => $value]);
 
         }
 

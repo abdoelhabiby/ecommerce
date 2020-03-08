@@ -55,6 +55,8 @@ Route::group(
 
 				Route::post("select_category","ProductsController@selectCategory")->name('selectCategory');
 
+				Route::post("related/product","ProductsController@relatedProduct")->name('relatedProduct');
+
 
 
 	// ==========================================================================================

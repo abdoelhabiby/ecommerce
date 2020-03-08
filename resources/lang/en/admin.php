@@ -191,6 +191,8 @@ return [
     "successCopy" => "copied successfully : You will be directed to the product page",
     "Product_information"  => "Product information",
     "related_products"  => "Related products",
+    "srearch_rel_product" => "search for related product",
+    "productCount" =>  "Product Count",
 
 	
 

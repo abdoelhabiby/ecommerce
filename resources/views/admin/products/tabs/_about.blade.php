@@ -1,7 +1,7 @@
 <div class="tab-pane fade show active mt-2" id="about" role="tabpanel" aria-labelledby="about-tab">
     <div class="form-group">
        {!! Form::label('title',trans('admin.title'), ['class' => 'awesome']) !!} 
-       {!! Form::text("title",value($product->title),['class' => 'form-control','placeholder' => trans('admin.title')]) !!}
+       {!! Form::text("title",value($product->title),['class' => 'form-control checkTitle','placeholder' => trans('admin.title')]) !!}
 
     </div> 
 

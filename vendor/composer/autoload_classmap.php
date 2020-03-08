@@ -60,6 +60,7 @@ return array(
     'App\\Http\\Middleware\\maintenance' => $baseDir . '/app/Http/Middleware/maintenance.php',
     'App\\Http\\Middleware\\rediectAdmin' => $baseDir . '/app/Http/Middleware/rediectAdmin.php',
     'App\\Mail\\admin\\resetPassword' => $baseDir . '/app/Mail/admin/resetPassword.php',
+    'App\\ModelRelatedProduct' => $baseDir . '/app/ModelRelatedProduct.php',
     'App\\Model\\Category' => $baseDir . '/app/Model/Category.php',
     'App\\Model\\Color' => $baseDir . '/app/Model/Color.php',
     'App\\Model\\Mall' => $baseDir . '/app/Model/Mall.php',

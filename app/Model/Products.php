@@ -39,7 +39,12 @@ class Products extends Model
      ];
 
 
-     public function mallHasProduct(){
+     public function related(){
+
+          return $this->hasMany(\App\Model\ModelRelatedProduct::class,'product_id','id');
+     }      
+
+      public function mallHasProduct(){
 
           return $this->hasMany(\App\Model\MallHasProduct::class,'product_id','id');
      }  
@@ -55,36 +60,9 @@ class Products extends Model
           return $this->belongsTo(\App\Model\Category::class);
      }
 
-     public function weight(){
-
-     	return $this->belongsTo(\App\Model\Weight::class);
-     }
-
-     public function manufactury(){
-
-     	return $this->belongsTo(\App\Model\Manufacturers::class);
-     }
-
-     public function trade(){
-
-     	return $this->belongsTo(\App\Model\Trademark::class);
-     }
 
 
-     public function size(){
-
-     	return $this->belongsTo(\App\Model\Size::class);
-     }
-
-     public function color(){
-
-     	return $this->belongsTo(\App\Model\Color::class);
-     }
-
-     public function currency(){
-
-     	return $this->belongsTo(\App\Countries::class);
-     }
+  
 
 
 

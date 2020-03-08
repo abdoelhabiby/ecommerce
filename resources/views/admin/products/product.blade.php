@@ -1,7 +1,7 @@
 @extends("admin.layouts.app")
 
 @section('title')
- {{trans('admin.create_m')}}
+ {{trans('admin.edit_m')}}
 @endsection
 
 @push('scripts')
@@ -11,17 +11,23 @@
    
    $(".copy_product").click(function(){
 
+   var title =  $('.checkTitle').val();
+   var theError = `Sorry Cannot copy empty !!!`;
+
+
+   if(title.length > 0){
+
+
        $.ajax({
 
           url:"{{route('copyProduct',$product->id)}}",
           method:'POST',
-          data:{_token:"{{csrf_token()}}"},
+          data:{_token:"{{csrf_token()}}",titlePro:title},
           beforeSend:function(){
             $('.loaddingSpin').removeClass('d-none');
 
           },
           success:function(data){
-
 
             setTimeout(function(){
 
@@ -33,9 +39,23 @@
 
             },3000)
               
+          },
+          error: function(data){
+            $('.loaddingSpin').addClass('d-none');
+            $('.showError').removeClass('d-none');
+            $('.showError .errorText').html(theError);
           }
 
        });
+
+   }else{
+
+
+        $('.showError').removeClass('d-none');
+        $('.showError .errorText').html(theError);
+
+   }
+
 
    });
   
@@ -48,6 +68,15 @@
 
 @section("content")
 
+
+<div class="alert alert-danger alert-dismissible fade show showError d-none" role="alert">
+  <strong>Error</strong> <span class="errorText"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -59,7 +88,7 @@
 @endif
 
 <div class="alert alert-success alert-dismissible fade show addSuccess d-none" role="alert">
-  <strong>Success</strong> <span class="addText"></span>
+  <strong>Success</strong> <span class="addText"> </span>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -70,17 +99,24 @@
    <div class="card-header">
 	  	    <h4 class="text-primary float-left">{{ trans("admin.create_m") }}</h4>
 
-          <button class="btn btn-success float-right copy_product">
+  <div class="float-right">
+          <button class="btn btn-success copy_product">
             <i class="fa fa-copy"> </i>   
-       {{trans('admin.copy')}} <i class="fas fa-sync fa-spin loaddingSpin d-none"></i></button>
+            {{trans('admin.copy')}} <i class="fas fa-sync fa-spin loaddingSpin d-none"></i>
+            </button>
+            <div class="form-group" style="display: inline;">
+             {!! Form::submit(trans("admin.save"),['class' => 'btn btn-info','form' => 'toForm']) !!}
+           </div> 
 
+
+</div>
           <div class="clearfix"></div>
 
    </div>
   <div class="card-body">
 
     
-       {!! Form::open(['url' => route('products.update',$product->id),'files' => true,'class' => 'myForm']) !!}
+       {!! Form::open(['url' => route('products.update',$product->id),'files' => true,'class' => 'myForm','id' => 'toForm']) !!}
        @method('PUT')
 <!-- ---------------------------------------------------------------------------------------- -->
 
@@ -128,9 +164,7 @@
 
 
    <!-- ----------------------------------------------------------------------------------------  -->
-     <div class="form-group mt-2 float-right">
-       {!! Form::submit(trans("admin.save"),['class' => 'btn btn-info']) !!}
-     </div> 
+
      <div class="clearfix"></div>
        {!! Form::close() !!}
 

@@ -576,6 +576,7 @@ class ComposerStaticInit907b3f5e7f1eac8616dd77aef08a437c
         'App\\Http\\Middleware\\maintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/maintenance.php',
         'App\\Http\\Middleware\\rediectAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/rediectAdmin.php',
         'App\\Mail\\admin\\resetPassword' => __DIR__ . '/../..' . '/app/Mail/admin/resetPassword.php',
+        'App\\ModelRelatedProduct' => __DIR__ . '/../..' . '/app/ModelRelatedProduct.php',
         'App\\Model\\Category' => __DIR__ . '/../..' . '/app/Model/Category.php',
         'App\\Model\\Color' => __DIR__ . '/../..' . '/app/Model/Color.php',
         'App\\Model\\Mall' => __DIR__ . '/../..' . '/app/Model/Mall.php',
